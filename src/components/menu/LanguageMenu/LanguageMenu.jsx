@@ -1,4 +1,4 @@
-import { memo, useState, useRef } from 'react';
+import { memo, useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useMenuContext } from '@/context/MenuContext';
 import ArrowDownIcon from '@/components/ui/icons/ArrowDownIcon';
@@ -9,37 +9,46 @@ import { LANGUAGE_LIST } from '@/constants/language.constats';
 const LanguageMenu = ({ menuId, langList = LANGUAGE_LIST }) => {
     const btnRef = useRef(null);
     const [langId, setLangId] = useState('');
+    const [isOpen, setIsOpen] = useState(false);
     const { activeSubId, setActiveSubId } = useMenuContext();
 
-    const onSubClick = () => {
+    useEffect(() => {
+        (activeSubId !== menuId && isOpen) && setIsOpen(false);
+    }, [activeSubId, menuId, isOpen, setIsOpen]);
+
+    const onSubMenuClick = () => {
         const activeId = btnRef.current.id;
-        if (activeId) {
+        if (activeId && !isOpen) {
             setActiveSubId(activeId);
+            setIsOpen(true);
         } else {
             setActiveSubId('');
+            setIsOpen(false);
         }
+    };
+
+    const onSubMenuItemClick = (e, id) => {
+        e.stopPropagation();
+        setLangId(id);
+        setActiveSubId('');
     };
 
     return (
         <div className="relative">
-            <div
-                onClick={() => console.log('Click back')}
-                className={`${activeSubId === '' ? 'invisible' : 'visible'} fixed top-0 left-0 right-0 bottom-0 z-[4]`}
-            />
             <button
                 ref={btnRef}
                 id={menuId}
                 className={`is-clickable text-[15px] ${
                     activeSubId === menuId ? 'text-blue-dark' : 'text-black-dark'
                 }  inline-flex items-center font-regular hover:text-blue-dark transition relative z-10`}
-                onClick={onSubClick}
+                onClick={onSubMenuClick}
                 type="button"
             >
                 {langId ? <FlagGBIcon /> : <FlagRFIcon />}
                 <span className="ml-[10px] mr-[6px]">FRA</span>
                 <ArrowDownIcon
                     className={`${
-                        activeSubId ? 'rotate-180 [&>path]:stroke-blue-dark' : 'rotate-0'
+                        activeSubId === menuId ? 'rotate-180 [&>path]:stroke-blue-dark' : 'rotate-0'
                     } transition-transform ${activeSubId === menuId && '[&>path]:stroke-blue-dark'}`}
                 />
             </button>
@@ -59,8 +68,8 @@ const LanguageMenu = ({ menuId, langList = LANGUAGE_LIST }) => {
                                     id={id}
                                     className={`${
                                         langId === id ? 'text-blue-dark' : 'text-black-dark'
-                                    } relative flex items-center font-regular text-[15px] whitespace-nowrap px-[15px] py-[15px] hover:bg-gray-100 hover:text-blue-dark transition z-10`}
-                                    onClick={() => setLangId(id)}
+                                    } relative flex items-center font-regular text-[15px] whitespace-nowrap w-full px-[15px] py-[12px] hover:bg-gray-100 hover:text-blue-dark transition z-10`}
+                                    onClick={(e) => onSubMenuItemClick(e, id)}
                                 >
                                     <Icon />
                                     <span className="ml-[10px]">{title}</span>

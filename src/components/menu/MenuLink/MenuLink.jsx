@@ -8,7 +8,12 @@ const MenuLink = ({ children, href, id, subMenu }) => {
     const linkRef = useRef(null);
     const { pathname } = useLocation();
     const { activeSubId, setActiveSubId } = useMenuContext();
+    const [isOpen, setIsOpen] = useState(false);
     const [linkActive, setLinkActive] = useState(false);
+
+    useEffect(() => {
+        (activeSubId !== id && isOpen) && setIsOpen(false);
+    }, [activeSubId, id, isOpen, setIsOpen]);
 
     useEffect(() => {
         const hrefArr = subMenu && subMenu.map(item => item.href);
@@ -17,22 +22,17 @@ const MenuLink = ({ children, href, id, subMenu }) => {
 
     const onSubClick = () => {
         const activeId = linkRef.current.id;
-        if (activeId) {
+        if (activeId && !isOpen) {
             setActiveSubId(activeId);
+            setIsOpen(true);
         } else {
             setActiveSubId('');
+            setIsOpen(false);
         }
     };
 
     return subMenu ? (
         <div className="relative">
-            <div
-                onClick={e => {
-                    e.stopPropagation();
-                    setActiveSubId('');
-                }}
-                className={`${activeSubId === '' ? 'invisible' : 'visible'} fixed top-0 left-0 right-0 bottom-0 z-[4]`}
-            />
             <button
                 ref={linkRef}
                 id={id}

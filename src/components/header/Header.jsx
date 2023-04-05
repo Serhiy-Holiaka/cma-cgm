@@ -27,11 +27,24 @@ const Header = () => {
                     <LogoIcon />
                 </Link>
                 <nav className="relative inline-flex items-center -z-[1]">
+                    <div
+                        onClick={e => {
+                            e.stopPropagation();
+                            setActiveSubId('');
+                        }}
+                        className={`${
+                            activeSubId === '' ? 'invisible' : 'visible'
+                        } fixed top-0 left-0 right-0 bottom-0 z-[4]`}
+                    />
                     {!isMobile && <DesktopMenu />}
                     <div className="flex items-center [&>*]:mr-9 last:[&>*]:mr-0">
-                        <button type="button" className="is-clickable z-[5]"><SearchIcon className="w-6 h-auto" /></button>
+                        <button type="button" className="is-clickable z-[5]">
+                            <SearchIcon className="w-6 h-auto" />
+                        </button>
                         <LanguageMenu menuId="langTop" />
-                        <Button onClick={() => navigate('/contact-us')} additionalClasses="z-[5]">Contact Us</Button>
+                        <Button onClick={() => navigate('/contact-us')} additionalClasses="z-[5]">
+                            Contact Us
+                        </Button>
                     </div>
                     {isMobile && <MobileMenu />}
                 </nav>
