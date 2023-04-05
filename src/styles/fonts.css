@@ -1,0 +1,20 @@
+@font-face {
+    font-family: "Resolve-Light";
+    src: url("/src/assets/fonts/Resolve-Light.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Resolve-Regular";
+    src: url("/src/assets/fonts/Resolve-Regular.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Resolve-Medium";
+    src: url("/src/assets/fonts/Resolve-Medium.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Resolve-MediumWd";
+    src: url("/src/assets/fonts/Resolve-MediumWd.woff2") format("woff2");
+}
+@font-face {
+    font-family: "Resolve-Semilight";
+    src: url("/src/assets/fonts/Resolve-Semilight.woff2") format("woff");
+}
