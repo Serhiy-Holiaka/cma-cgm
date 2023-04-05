@@ -4,9 +4,11 @@ import DesktopMenu from '@/components/menu/DesktopMenu';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import Button from '@/components/ui/button';
 import LogoIcon from '@/components/ui/icons/LogoIcon';
+import SearchIcon from '@/components/ui/icons/SearchIcon';
 import { Link, useNavigate } from 'react-router-dom';
 import { MenuProvider } from '@/context/MenuContext';
 import { useDocumentLockScrollY } from '@/hooks/useDocumentLockScrollY';
+import LanguageMenu from '@/components/menu/LanguageMenu';
 
 const Header = () => {
     const isMobile = useMediaQuery('(max-width: 1000px)');
@@ -24,11 +26,15 @@ const Header = () => {
                 <Link onClick={e => e.stopPropagation()} to="/">
                     <LogoIcon />
                 </Link>
-                <div className="relative inline-flex items-center -z-[1]">
+                <nav className="relative inline-flex items-center -z-[1]">
                     {!isMobile && <DesktopMenu />}
-                    <Button onClick={() => navigate('/contact-us')} additionalClasses="z-[5]">Contact Us</Button>
+                    <div className="flex items-center [&>*]:mr-9 last:[&>*]:mr-0">
+                        <button type="button" className="is-clickable z-[5]"><SearchIcon className="w-6 h-auto" /></button>
+                        <LanguageMenu menuId="langTop" />
+                        <Button onClick={() => navigate('/contact-us')} additionalClasses="z-[5]">Contact Us</Button>
+                    </div>
                     {isMobile && <MobileMenu />}
-                </div>
+                </nav>
             </div>
         </MenuProvider>
     );

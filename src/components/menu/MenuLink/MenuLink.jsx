@@ -7,7 +7,6 @@ import ArrowDownIcon from '@/components/ui/icons/ArrowDownIcon';
 const MenuLink = ({ children, href, id, subMenu }) => {
     const linkRef = useRef(null);
     const { pathname } = useLocation();
-    //const [isOpen, setIsOpen] = useState(false);
     const { activeSubId, setActiveSubId } = useMenuContext();
     const [linkActive, setLinkActive] = useState(false);
 
@@ -20,10 +19,8 @@ const MenuLink = ({ children, href, id, subMenu }) => {
         const activeId = linkRef.current.id;
         if (activeId) {
             setActiveSubId(activeId);
-            //setIsOpen(true);
         } else {
             setActiveSubId('');
-            //setIsOpen(false);
         }
     };
 
@@ -33,7 +30,6 @@ const MenuLink = ({ children, href, id, subMenu }) => {
                 onClick={e => {
                     e.stopPropagation();
                     setActiveSubId('');
-                    //setIsOpen(false);
                 }}
                 className={`${activeSubId === '' ? 'invisible' : 'visible'} fixed top-0 left-0 right-0 bottom-0 z-[4]`}
             />
@@ -42,7 +38,7 @@ const MenuLink = ({ children, href, id, subMenu }) => {
                 id={id}
                 className={`is-clickable text-[15px] ${
                     activeSubId === id || linkActive ? 'text-blue-dark' : 'text-black-dark'
-                }  inline-flex items-center hover:text-blue-dark transition relative z-10`}
+                }  inline-flex items-center font-regular hover:text-blue-dark transition relative z-10`}
                 onClick={onSubClick}
                 type="button"
             >
@@ -56,7 +52,7 @@ const MenuLink = ({ children, href, id, subMenu }) => {
             {subMenu && (
                 <div
                     id={id}
-                    className={`absolute top-[35px] left-0 rounded-lg z-[5] min-w-[204px] bg-white overflow-hidden transition-all duration-150 shadow-lg ${
+                    className={`absolute top-[35px] left-0 z-[5] min-w-[204px] bg-white overflow-hidden transition-all duration-150 shadow-lg ${
                         activeSubId === id ? 'translate-y-0 opacity-1 visible' : '-translate-y-10 opacity-0 invisible'
                     }`}
                 >
@@ -67,12 +63,11 @@ const MenuLink = ({ children, href, id, subMenu }) => {
                                     className={({ isActive }) =>
                                         `${
                                             isActive ? 'text-blue-dark' : 'text-black-dark'
-                                        } relative flex items-center text-[15px] whitespace-nowrap px-[10px] py-[13px] border-b hover:text-blue-dark transition z-10`
+                                        } relative flex items-center font-regular text-[15px] leading-none whitespace-nowrap px-[15px] py-[15px] hover:bg-gray-100 hover:text-blue-dark transition z-10`
                                     }
                                     onClick={e => {
                                         e.stopPropagation();
                                         setActiveSubId('');
-                                        //setIsOpen(false);
                                     }}
                                     to={href}
                                 >
@@ -90,12 +85,11 @@ const MenuLink = ({ children, href, id, subMenu }) => {
             onClick={e => {
                 e.stopPropagation();
                 setActiveSubId('');
-                //setIsOpen(false);
             }}
             className={({ isActive }) =>
                 `${
                     isActive ? 'text-blue-dark' : 'text-black-dark'
-                } relative is-clickable text-[15px] desktop:py-1 py-[26px] hover:text-blue-dark transition z-10`
+                } relative is-clickable font-regular text-[15px] desktop:py-1 py-[26px] hover:text-blue-dark transition z-10`
             }
             to={href}
         >
