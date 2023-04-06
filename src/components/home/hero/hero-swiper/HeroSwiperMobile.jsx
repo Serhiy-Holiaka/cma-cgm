@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, EffectFade } from 'swiper';
 import HeroSlideMobile from './HeroSlideMobile';
-import { HERO_SLIDER_LIST } from '@/constants/slder.constants';
+import { HERO_SLIDER_LIST } from '@/constants/slider.constants';
 import ArrowDownIcon from '@/components/ui/icons/ArrowDownIcon';
 import 'swiper/css';
 import 'swiper/css/autoplay';

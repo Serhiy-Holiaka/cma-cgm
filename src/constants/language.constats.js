@@ -4,12 +4,12 @@ import FlagGBIcon from '@/components/ui/icons/FlagGBIcon';
 export const LANGUAGE_LIST = [
     {
         id: '1gb',
-        title: 'ENG',
+        title: 'eng',
         icon: FlagGBIcon,
     },
     {
         id: '2fr',
-        title: 'FRA',
+        title: 'fra',
         icon: FlagRFIcon,
     },
 ];

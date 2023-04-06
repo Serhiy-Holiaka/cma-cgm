@@ -1,4 +1,4 @@
-import { memo, useState, useRef, useEffect } from 'react';
+import { memo, useState, useRef, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useMenuContext } from '@/context/MenuContext';
 import ArrowDownIcon from '@/components/ui/icons/ArrowDownIcon';
@@ -8,19 +8,26 @@ import { LANGUAGE_LIST } from '@/constants/language.constats';
 
 const LanguageMenu = ({ menuId, langList = LANGUAGE_LIST }) => {
     const btnRef = useRef(null);
-    const [langId, setLangId] = useState('');
+    const [langId, setLangId] = useState('1gb');
     const [isOpen, setIsOpen] = useState(false);
-    const { activeSubId, setActiveSubId } = useMenuContext();
+    const [currentLang, setCurrentLang] = useState({});
+    const { activeSubId, setActiveSubId, setIsMobMenuOpen } = useMenuContext();
 
     useEffect(() => {
-        (activeSubId !== menuId && isOpen) && setIsOpen(false);
+        activeSubId !== menuId && isOpen && setIsOpen(false);
     }, [activeSubId, menuId, isOpen, setIsOpen]);
+
+    useMemo(() => {
+        const langProps = langList && langList.find(item => item.id === langId);
+        setCurrentLang(langProps);
+    }, [langId, langList]);
 
     const onSubMenuClick = () => {
         const activeId = btnRef.current.id;
         if (activeId && !isOpen) {
             setActiveSubId(activeId);
             setIsOpen(true);
+            setIsMobMenuOpen(false);
         } else {
             setActiveSubId('');
             setIsOpen(false);
@@ -34,7 +41,7 @@ const LanguageMenu = ({ menuId, langList = LANGUAGE_LIST }) => {
     };
 
     return (
-        <div className="relative">
+        <div className="relative min-w-[82px]">
             <button
                 ref={btnRef}
                 id={menuId}
@@ -44,8 +51,8 @@ const LanguageMenu = ({ menuId, langList = LANGUAGE_LIST }) => {
                 onClick={onSubMenuClick}
                 type="button"
             >
-                {langId ? <FlagGBIcon /> : <FlagRFIcon />}
-                <span className="ml-[10px] mr-[6px]">FRA</span>
+                {currentLang?.title === 'eng' ? <FlagGBIcon /> : <FlagRFIcon />}
+                <span className="ml-[10px] mr-[6px] uppercase">{currentLang?.title}</span>
                 <ArrowDownIcon
                     className={`${
                         activeSubId === menuId ? 'rotate-180 [&>path]:stroke-blue-dark' : 'rotate-0'
@@ -69,10 +76,10 @@ const LanguageMenu = ({ menuId, langList = LANGUAGE_LIST }) => {
                                     className={`${
                                         langId === id ? 'text-blue-dark' : 'text-black-dark'
                                     } relative flex items-center font-regular text-[15px] whitespace-nowrap w-full px-[15px] py-[12px] hover:bg-gray-100 hover:text-blue-dark transition z-10`}
-                                    onClick={(e) => onSubMenuItemClick(e, id)}
+                                    onClick={e => onSubMenuItemClick(e, id)}
                                 >
                                     <Icon />
-                                    <span className="ml-[10px]">{title}</span>
+                                    <span className="ml-[10px] uppercase">{title}</span>
                                 </button>
                             </li>
                         ))}

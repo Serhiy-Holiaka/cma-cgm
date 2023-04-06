@@ -19,6 +19,14 @@
     }
 }
 
+.button {
+    transition: all ease .2s;
+}
+
+.button:active {
+    transform: translateY(2px);
+}
+
 .lock-scroll-y {
     position: fixed;
     top: 0;

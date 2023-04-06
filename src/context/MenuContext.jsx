@@ -11,13 +11,15 @@ export const useMenuContext = () => {
     return context;
 };
 
-export const MenuProvider = ({ children, activeSubId, setActiveSubId }) => {
+export const MenuProvider = ({ children, activeSubId, setActiveSubId, isMobMenuOpen, setIsMobMenuOpen }) => {
     const memoizedValue = useMemo(
         () => ({
             activeSubId,
             setActiveSubId,
+            isMobMenuOpen,
+            setIsMobMenuOpen,
         }),
-        [activeSubId, setActiveSubId]
+        [activeSubId, setActiveSubId, isMobMenuOpen, setIsMobMenuOpen]
     );
 
     return <MenuContext.Provider value={memoizedValue}>{children}</MenuContext.Provider>;
@@ -27,4 +29,6 @@ MenuProvider.propTypes = {
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.element]).isRequired,
     activeSubId: PropTypes.string.isRequired,
     setActiveSubId: PropTypes.func.isRequired,
+    isMobMenuOpen: PropTypes.bool.isRequired,
+    setIsMobMenuOpen: PropTypes.func.isRequired,
 };

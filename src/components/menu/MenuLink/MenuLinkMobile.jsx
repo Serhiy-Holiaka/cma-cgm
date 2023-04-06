@@ -1,45 +1,59 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { useToggle } from '@/hooks/useToggle';
-import { NavLink } from 'react-router-dom';
-import ArrowDownIcon from '@/components/ui/icons/ArrowDownIcon';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useMenuContext } from '@/context/MenuContext';
+import ArrowDownIcon from '@/components/ui/icons/ArrowDownIcon';
 
-const MenuLinkMobile = ({ children, href, subMenu }) => {
-    const { isMenuOpen, setIsMenuOpen } = useMenuContext();
-    const [openedCancelModal, toggleCancelModal] = useToggle(false);
+const MenuLinkMobile = ({ children, href, id, subMenu }) => {
+    const linkRef = useRef(null);
+    const { pathname } = useLocation();
+    const { activeSubId, setActiveSubId } = useMenuContext();
+    const [isOpen, setIsOpen] = useState(false);
+    const [linkActive, setLinkActive] = useState(false);
 
     useEffect(() => {
-        if (!isMenuOpen && openedCancelModal) {
-            toggleCancelModal();
-        }
-    }, [isMenuOpen, openedCancelModal, toggleCancelModal]);
+        (activeSubId !== id && isOpen) && setIsOpen(false);
+    }, [activeSubId, id, isOpen, setIsOpen]);
 
-    const onClickLink = e => {
-        e.stopPropagation();
-        setIsMenuOpen(false);
+    useEffect(() => {
+        const hrefArr = subMenu && subMenu.map(item => item.href);
+        pathname && hrefArr && setLinkActive(hrefArr.includes(pathname));
+    }, [pathname, subMenu]);
+
+    const onSubClick = () => {
+        const activeId = linkRef.current.id;
+        if (activeId && !isOpen) {
+            setActiveSubId(activeId);
+            setIsOpen(true);
+        } else {
+            setActiveSubId('');
+            setIsOpen(false);
+        }
     };
 
     return subMenu ? (
         <div className="relative">
             <button
+                ref={linkRef}
+                id={id}
                 className={`is-clickable text-[15px] ${
-                    openedCancelModal ? 'text-blue-dark' : 'text-black-dark'
-                } flex items-center justify-center w-full py-[25px] hover:text-blue-dark transition relative z-10`}
-                onClick={toggleCancelModal}
+                    activeSubId === id || linkActive ? 'text-blue-dark' : 'text-black-dark'
+                } flex items-center font-regular leading-none text-[15px] justify-center w-full py-[15px] hover:bg-gray-100 hover:text-blue-dark transition relative z-10`}
+                onClick={onSubClick}
                 type="button"
             >
                 {children}
                 <ArrowDownIcon
                     className={`${
-                        openedCancelModal ? 'rotate-180 [&>path]:stroke-blue-dark' : 'rotate-0'
-                    } ml-1 transition-transform`}
+                        activeSubId === id ? 'rotate-180 [&>path]:stroke-blue-dark' : 'rotate-0'
+                    } ml-1 transition-transform ${linkActive && '[&>path]:stroke-blue-dark'}`}
                 />
             </button>
             {subMenu && (
                 <div
+                    id={id}
                     className={`relative rounded-lg z-[5] bg-white overflow-hidden transition-all duration-150 border-y border-y-neutral-50 ${
-                        openedCancelModal && isMenuOpen
+                        activeSubId === id
                             ? 'translate-y-0 opacity-1 visible h-auto'
                             : '-translate-y-10 opacity-0 invisible h-0'
                     }`}
@@ -51,9 +65,12 @@ const MenuLinkMobile = ({ children, href, subMenu }) => {
                                     className={({ isActive }) =>
                                         `${
                                             isActive ? 'text-blue-dark' : 'text-black-dark'
-                                        } relative block text-[15px] whitespace-nowrap py-[20px] hover:text-blue-dark transition z-10`
+                                        } relative block font-regular leading-none text-[15px] whitespace-nowrap py-[12px] hover:bg-gray-100 hover:text-blue-dark transition z-10`
                                     }
-                                    onClick={onClickLink}
+                                    onClick={e => {
+                                        e.stopPropagation();
+                                        setActiveSubId('');
+                                    }}
                                     to={href}
                                 >
                                     {name}
@@ -66,11 +83,15 @@ const MenuLinkMobile = ({ children, href, subMenu }) => {
         </div>
     ) : (
         <NavLink
-            onClick={onClickLink}
+            id={id}
+            onClick={e => {
+                e.stopPropagation();
+                setActiveSubId('');
+            }}
             className={({ isActive }) =>
                 `${
                     isActive ? 'text-blue-dark' : 'text-black-dark'
-                } relative is-clickable flex justify-center text-[15px] desktop:py-1 py-[25px] hover:text-blue-dark transition z-10`
+                } relative is-clickable flex justify-center font-regular leading-none text-[15px] py-[15px] hover:bg-gray-100 hover:text-blue-dark transition z-10`
             }
             to={href}
         >
@@ -83,6 +104,7 @@ MenuLinkMobile.propTypes = {
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.element]).isRequired,
     href: PropTypes.string,
     subMenu: PropTypes.arrayOf(PropTypes.object),
+    id: PropTypes.string,
 };
 
 export default MenuLinkMobile;

@@ -16,11 +16,11 @@ const Button = forwardRef(
             <button
                 ref={ref}
                 type={actionType}
-                className={`is-clickable font-medium flex justify-center items-center px-10 py-[15px] min-w-[115px] h-[51px] text-[15px] ${variantStyle} transition hover:shadow-md active:translate-y-[2px] ${additionalClasses}`}
+                className={`is-clickable button font-medium flex justify-center items-center px-10 py-[15px] min-w-[115px] h-[51px] text-[15px] ${variantStyle} hover:shadow-md ${additionalClasses}`}
                 onClick={handleClick}
                 {...rest}
             >
-                {children}
+                <span>{children}</span>
             </button>
         );
     }
