@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useMenuContext } from '@/context/MenuContext';
+import { useThemeContext } from '@/context/ThemeContext';
 import ArrowDownIcon from '@/components/ui/icons/ArrowDownIcon';
 
 const MenuLink = ({ children, href, id, subMenu }) => {
@@ -10,6 +11,8 @@ const MenuLink = ({ children, href, id, subMenu }) => {
     const { activeSubId, setActiveSubId } = useMenuContext();
     const [isOpen, setIsOpen] = useState(false);
     const [linkActive, setLinkActive] = useState(false);
+    const { isDark } = useThemeContext();
+    const themeColor = isDark ? 'text-black-dark' : 'text-white';
 
     useEffect(() => {
         (activeSubId !== id && isOpen) && setIsOpen(false);
@@ -37,16 +40,16 @@ const MenuLink = ({ children, href, id, subMenu }) => {
                 ref={linkRef}
                 id={id}
                 className={`is-clickable text-[15px] ${
-                    activeSubId === id || linkActive ? 'text-blue-dark' : 'text-black-dark'
-                }  inline-flex items-center font-regular hover:text-blue-dark transition relative z-10`}
+                    activeSubId === id || linkActive ? 'text-blue' : themeColor
+                }  inline-flex items-center font-regular hover:text-blue transition relative z-10`}
                 onClick={onSubClick}
                 type="button"
             >
                 {children}
                 <ArrowDownIcon
-                    className={`${
-                        activeSubId === id ? 'rotate-180 [&>path]:stroke-blue-dark' : 'rotate-0'
-                    } ml-1 transition-transform ${linkActive && '[&>path]:stroke-blue-dark'}`}
+                    className={`${isDark ? '[&>path]:stroke-black-dark' : '[&>path]:stroke-white'} ${
+                        activeSubId === id ? 'rotate-180 [&>path]:!stroke-blue' : 'rotate-0'
+                    } ml-1 transition-transform ${linkActive && '[&>path]:!stroke-blue'}`}
                 />
             </button>
             {subMenu && (
@@ -62,8 +65,8 @@ const MenuLink = ({ children, href, id, subMenu }) => {
                                 <NavLink
                                     className={({ isActive }) =>
                                         `${
-                                            isActive ? 'text-blue-dark' : 'text-black-dark'
-                                        } relative flex items-center font-regular text-[15px] leading-none whitespace-nowrap px-[15px] py-[15px] hover:bg-gray-100 hover:text-blue-dark transition z-10`
+                                            isActive ? 'text-blue' : 'text-black-dark'
+                                        } relative flex items-center font-regular text-[15px] leading-none whitespace-nowrap px-[15px] py-[15px] hover:bg-gray-100 hover:text-blue transition z-10`
                                     }
                                     onClick={e => {
                                         e.stopPropagation();
@@ -88,8 +91,8 @@ const MenuLink = ({ children, href, id, subMenu }) => {
             }}
             className={({ isActive }) =>
                 `${
-                    isActive ? 'text-blue-dark' : 'text-black-dark'
-                } relative is-clickable font-regular text-[15px] desktop:py-1 py-[26px] hover:text-blue-dark transition z-10`
+                    isActive ? 'text-blue' : themeColor
+                } relative is-clickable font-regular text-[15px] desktop:py-1 py-[26px] hover:text-blue transition z-10`
             }
             to={href}
         >

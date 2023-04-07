@@ -1,7 +1,7 @@
 export const MENU_LIST = [
     {
         name: 'About us',
-        href: '/about',
+        href: '/about-us',
     },
     {
         name: 'Find your local offices',
@@ -54,7 +54,7 @@ export const MENU_LIST = [
             {
                 name: 'Dedicated flight',
                 href: '/dedicated-flight',
-            }
+            },
         ],
     },
 ];

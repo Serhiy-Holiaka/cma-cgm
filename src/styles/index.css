@@ -20,12 +20,21 @@
 }
 
 .button {
-    transition: all ease .2s;
+    transition: all ease 0.2s;
 }
 
 .button:active {
     transform: translateY(2px);
 }
+
+.bullet-custom {
+    cursor:progress;
+}
+
+.active-point {
+    cursor: pointer;
+}
+
 
 .lock-scroll-y {
     position: fixed;

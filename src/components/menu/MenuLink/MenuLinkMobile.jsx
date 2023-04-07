@@ -37,16 +37,16 @@ const MenuLinkMobile = ({ children, href, id, subMenu }) => {
                 ref={linkRef}
                 id={id}
                 className={`is-clickable text-[15px] ${
-                    activeSubId === id || linkActive ? 'text-blue-dark' : 'text-black-dark'
-                } flex items-center font-regular leading-none text-[15px] justify-center w-full py-[15px] hover:bg-gray-100 hover:text-blue-dark transition relative z-10`}
+                    activeSubId === id || linkActive ? 'text-blue' : 'text-black-dark'
+                } flex items-center font-regular leading-none text-[15px] justify-center w-full py-[15px] hover:bg-gray-100 hover:text-blue transition relative z-10`}
                 onClick={onSubClick}
                 type="button"
             >
                 {children}
                 <ArrowDownIcon
                     className={`${
-                        activeSubId === id ? 'rotate-180 [&>path]:stroke-blue-dark' : 'rotate-0'
-                    } ml-1 transition-transform ${linkActive && '[&>path]:stroke-blue-dark'}`}
+                        activeSubId === id ? 'rotate-180 [&>path]:stroke-blue' : 'rotate-0'
+                    } ml-1 transition-transform ${linkActive && '[&>path]:stroke-blue'}`}
                 />
             </button>
             {subMenu && (
@@ -64,8 +64,8 @@ const MenuLinkMobile = ({ children, href, id, subMenu }) => {
                                 <NavLink
                                     className={({ isActive }) =>
                                         `${
-                                            isActive ? 'text-blue-dark' : 'text-black-dark'
-                                        } relative block font-regular leading-none text-[15px] whitespace-nowrap py-[12px] hover:bg-gray-100 hover:text-blue-dark transition z-10`
+                                            isActive ? 'text-blue' : 'text-black-dark'
+                                        } relative block font-regular leading-none text-[15px] whitespace-nowrap py-[12px] hover:bg-gray-100 hover:text-blue transition z-10`
                                     }
                                     onClick={e => {
                                         e.stopPropagation();
@@ -90,8 +90,8 @@ const MenuLinkMobile = ({ children, href, id, subMenu }) => {
             }}
             className={({ isActive }) =>
                 `${
-                    isActive ? 'text-blue-dark' : 'text-black-dark'
-                } relative is-clickable flex justify-center font-regular leading-none text-[15px] py-[15px] hover:bg-gray-100 hover:text-blue-dark transition z-10`
+                    isActive ? 'text-blue' : 'text-black-dark'
+                } relative is-clickable flex justify-center font-regular leading-none text-[15px] py-[15px] hover:bg-gray-100 hover:text-blue transition z-10`
             }
             to={href}
         >

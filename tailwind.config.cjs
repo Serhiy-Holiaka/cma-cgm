@@ -29,7 +29,7 @@ module.exports = {
                     DEFAULT: 'var(--white)',
                 },
                 blue: {
-                    DEFAULT: 'var(--blur)',
+                    DEFAULT: 'var(--blue)',
                     light: 'var(--blue-light)',
                     dark: 'var(--blue-dark)',
                 },

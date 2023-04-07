@@ -1,6 +1,7 @@
 import { memo, useState, useRef, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useMenuContext } from '@/context/MenuContext';
+import { useThemeContext } from '@/context/ThemeContext';
 import ArrowDownIcon from '@/components/ui/icons/ArrowDownIcon';
 import FlagRFIcon from '@/components/ui/icons/FlagRFIcon';
 import FlagGBIcon from '@/components/ui/icons/FlagGBIcon';
@@ -11,7 +12,9 @@ const LanguageMenu = ({ menuId, langList = LANGUAGE_LIST }) => {
     const [langId, setLangId] = useState('1gb');
     const [isOpen, setIsOpen] = useState(false);
     const [currentLang, setCurrentLang] = useState({});
+    const { isDark } = useThemeContext();
     const { activeSubId, setActiveSubId, setIsMobMenuOpen } = useMenuContext();
+    const themeColor = isDark ? 'text-black-dark' : 'text-white';
 
     useEffect(() => {
         activeSubId !== menuId && isOpen && setIsOpen(false);
@@ -46,17 +49,17 @@ const LanguageMenu = ({ menuId, langList = LANGUAGE_LIST }) => {
                 ref={btnRef}
                 id={menuId}
                 className={`is-clickable text-[15px] ${
-                    activeSubId === menuId ? 'text-blue-dark' : 'text-black-dark'
-                }  inline-flex items-center font-regular hover:text-blue-dark transition relative z-10`}
+                    activeSubId === menuId ? 'text-blue' : themeColor
+                }  inline-flex items-center font-regular hover:text-blue transition relative z-10`}
                 onClick={onSubMenuClick}
                 type="button"
             >
                 {currentLang?.title === 'eng' ? <FlagGBIcon /> : <FlagRFIcon />}
                 <span className="ml-[10px] mr-[6px] uppercase">{currentLang?.title}</span>
                 <ArrowDownIcon
-                    className={`${
-                        activeSubId === menuId ? 'rotate-180 [&>path]:stroke-blue-dark' : 'rotate-0'
-                    } transition-transform ${activeSubId === menuId && '[&>path]:stroke-blue-dark'}`}
+                    className={`${isDark ? '[&>path]:stroke-black-dark' : '[&>path]:stroke-white'} ${
+                        activeSubId === menuId ? 'rotate-180 [&>path]:stroke-blue' : 'rotate-0'
+                    } transition-transform ${activeSubId === menuId && '[&>path]:!stroke-blue'}`}
                 />
             </button>
             {langList && (
@@ -74,8 +77,8 @@ const LanguageMenu = ({ menuId, langList = LANGUAGE_LIST }) => {
                                 <button
                                     id={id}
                                     className={`${
-                                        langId === id ? 'text-blue-dark' : 'text-black-dark'
-                                    } relative flex items-center font-regular text-[15px] whitespace-nowrap w-full px-[15px] py-[12px] hover:bg-gray-100 hover:text-blue-dark transition z-10`}
+                                        langId === id ? 'text-blue' : 'text-black-dark'
+                                    } relative flex items-center font-regular text-[15px] whitespace-nowrap w-full px-[15px] py-[12px] hover:bg-gray-100 transition z-10`}
                                     onClick={e => onSubMenuItemClick(e, id)}
                                 >
                                     <Icon />
