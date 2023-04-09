@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import PropTypes from 'prop-types';
 
-const HeroSlide = ({ video }) => {
+const HeroSlide = ({ video, title }) => {
     return (
         <div className="relative h-full w-full bg-white">
             <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full z-[2] bg-black opacity-70" />
@@ -14,12 +14,19 @@ const HeroSlide = ({ video }) => {
                 autoPlay
                 muted
             />
+            <div className="relative container max-w-container mx-auto h-[calc(100%-55px)] grid grid-cols-2 z-[3] gap-8">
+                <div className="flex items-center">
+                    <h1 className="font-mediumWd text-[42px] leading-[130%] text-white">{title}</h1>
+                </div>
+                <div>Right</div>
+            </div>
         </div>
     );
 };
 
 HeroSlide.propTypes = {
     video: PropTypes.string,
+    title: PropTypes.string
 };
 
 export default memo(HeroSlide);

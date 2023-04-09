@@ -25,9 +25,6 @@ const Layout = () => {
     }, []);
 
     const onGlobalClick = e => {
-        const allWithClass = Array.from(document.getElementsByClassName('is-clickable'));
-        setClickable(allWithClass);
-
         if (e.target.className.includes('is-clickable')) {
             return;
         } else {

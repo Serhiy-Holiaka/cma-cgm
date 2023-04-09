@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, EffectFade } from 'swiper';
 import HeroSlider from './HeroSlide';
@@ -9,19 +8,12 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
 const HeroSwiper = () => {
-    let progressBar = document.querySelector('.progress-bar');
     const onAutoplayTimeLeft = (s, time, progress) => {
-        console.log(s);
         let activeBar = document.querySelector('.active-point > .progress-bar');
         if (activeBar) {
             activeBar.style.setProperty('transform', `translateX(${Math.round(progress * 100 * -1)}%)`);
         }
     };
-    useEffect(() => {
-        if (progressBar) {
-            progressBar.setProperty('transform', 'translateX(-101%)');
-        }
-    }, [progressBar]);
 
     return (
         <div className="relative w-full h-full ml-auto">
@@ -29,8 +21,8 @@ const HeroSwiper = () => {
                 modules={[Autoplay, EffectFade, Pagination]}
                 slidesPerView={1}
                 autoplay={{
-                    delay: 10000,
-                    disableOnInteraction: true,
+                    delay: 7000,
+                    disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                 }}
                 effect="fade"
@@ -42,20 +34,20 @@ const HeroSwiper = () => {
                     bulletClass: 'bullet-custom',
                     bulletActiveClass: 'active-point',
                     renderBullet: function (index, className) {
-                        return `<div class='relative ${className} w-full h-full overflow-hidden'><span class="progress-bar absolute left-0 -translate-x-[101%] w-full bg-purple-700 h-full transition-all"></span><span id="progressContent">${index}</span></div>`;
+                        return `<div class='holder relative ${className} w-full h-full overflow-hidden border-l border-l-[#191D23] first:border-l-transparent'><span class="progress-bar -translate-x-[101%] transition-all"></span><span id="progressContent" class="relative flex items-center justify-center w-full h-full font-medium text-[15px] leading-none text-white z-[1]">${HERO_SLIDER_LIST[index].paginStep}</span></div>`;
                     },
                 }}
                 className="h-full"
             >
-                {HERO_SLIDER_LIST.map(({ video }, i) => (
+                {HERO_SLIDER_LIST.map(({ video, title }, i) => (
                     <SwiperSlide key={i}>
-                        <HeroSlider video={video} />
+                        <HeroSlider video={video} title={title} />
                     </SwiperSlide>
                 ))}
             </Swiper>
             <div
                 id="paginationHolder"
-                className="absolute !bottom-0 !left-2/4 !-translate-x-2/4 !w-full max-w-container flex h-[55px] gap-1 z-[3]"
+                className="absolute !bottom-0 !left-2/4 bg-black-dark !-translate-x-2/4 !w-full max-w-container flex h-[55px] gap-[1px] z-[3]"
             />
         </div>
     );

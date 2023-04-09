@@ -3,19 +3,33 @@ import videoTwo from '@/assets/video/slide_two.mp4';
 
 export const HERO_SLIDER_LIST = [
     {
-        title: 'One',
+        paginStep: '01 LOGISTICS',
+        title: 'CMA CGM, Official Partner in logistics solutions of Paris 2024',
         video: videoOne,
     },
     {
-        title: 'Two',
+        paginStep: '02 SHIPPING',
+        title: 'CMA CGM, Official Partner in logistics solutions of Paris 2024',
         video: videoTwo,
     },
     {
-        title: 'Three',
+        paginStep: '03 AIR FREIGHT',
+        title: 'CMA CGM, Official Partner in logistics solutions of Paris 2024',
         video: videoOne,
     },
     {
-        title: 'Four',
+        paginStep: '04 MARITIME',
+        title: 'CMA CGM, Official Partner in logistics solutions of Paris 2024',
         video: videoTwo,
     },
+    {
+        paginStep: '05 REFRIGERATED',
+        title: 'CMA CGM, Official Partner in logistics solutions of Paris 2024',
+        video: videoOne,
+    },
+    {
+        paginStep: '06 CARGO',
+        title: 'CMA CGM, Official Partner in logistics solutions of Paris 2024',
+        video: videoTwo,
+    }
 ];

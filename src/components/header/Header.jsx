@@ -28,7 +28,7 @@ const Header = () => {
                 <Link onClick={e => e.stopPropagation()} to="/">
                     <LogoIcon mainColor={isDark ? 'var(--blue-dark)' : 'var(--white)'} />
                 </Link>
-                <nav className="relative inline-flex items-center -z-[1]">
+                <nav className="relative inline-flex items-center justify-end w-full -z-[1]">
                     <div
                         onClick={e => {
                             e.stopPropagation();

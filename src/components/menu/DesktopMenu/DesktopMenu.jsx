@@ -5,7 +5,7 @@ import { MENU_LIST } from '@/constants/menu.constants';
 
 const DesktopMenu = ({ menuList = MENU_LIST }) => {
     return (
-        <ul className="flex flex-row justify-center mr-[52px]">
+        <ul className="flex flex-row justify-center mr-[7%]">
             {menuList.map(({ name, href, id, subMenu }, i) => (
                 <li key={i} className="mr-[32px] last:mr-0">
                     <MenuLink href={href} id={id} subMenu={subMenu}>
