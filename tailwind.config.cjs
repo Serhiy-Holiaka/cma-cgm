@@ -26,19 +26,19 @@ module.exports = {
         extend: {
             colors: {
                 white: {
-                    DEFAULT: 'var(--white)',
+                    DEFAULT: 'rgb(var(--white) / <alpha-value>)',
                 },
                 blue: {
-                    DEFAULT: 'var(--blue)',
-                    light: 'var(--blue-light)',
-                    dark: 'var(--blue-dark)',
+                    DEFAULT: 'rgb(var(--blue) / <alpha-value>)',
+                    light: 'rgb(var(--blue-light) / <alpha-value>)',
+                    dark: 'rgb(var(--blue-dark) / <alpha-value>)',
                 },
                 black: {
-                    DEFAULT: 'var(--black)',
-                    dark: 'var(--black-dark)',
+                    DEFAULT: 'rgb(var(--black) / <alpha-value>)',
+                    dark: 'rgb(var(--black-dark) / <alpha-value>)',
                 },
                 red: {
-                    DEFAULT: 'var(--red)',
+                    DEFAULT: 'rgb(var(--red) / <alpha-value>)',
                 },
             },
             maxWidth: {

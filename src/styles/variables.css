@@ -1,9 +1,9 @@
 :root {
-    --black: #000000;
-    --black-dark: #0d0f12;
-    --white: #ffffff;
-    --red: #cf2c1e;
-    --blue: #237bff;
-    --blue-light: #005be4;
-    --blue-dark: #04246a;
+    --black: 0 0 0; /*rgb(0 0 0)*/
+    --black-dark: 13 15 18; /*rgb(13 15 18)*/
+    --white: 255 255 255; /*rgb(255 255 255)*/
+    --red: 207 44 30; /*rgb(207 44 30)*/
+    --blue: 35 123 255; /*rgb(35 123 255)*/
+    --blue-light: 0 91 228; /*rgb(0 91 228)*/
+    --blue-dark: 4 36 106; /*rgb(4 36 106)*/
 }

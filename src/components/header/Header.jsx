@@ -26,7 +26,7 @@ const Header = () => {
         >
             <div className="absolute left-2/4 -translate-x-[50%] top-0 flex justify-between items-center w-full max-w-[1920px] py-5 px-11 z-[4]">
                 <Link onClick={e => e.stopPropagation()} to="/">
-                    <LogoIcon mainColor={isDark ? 'var(--blue-dark)' : 'var(--white)'} />
+                    <LogoIcon mainColor={isDark ? 'rgb(var(--blue-dark))' : 'rgb(var(--white))'} />
                 </Link>
                 <nav className="relative inline-flex items-center justify-end w-full -z-[1]">
                     <div

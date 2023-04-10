@@ -11,7 +11,7 @@ const Footer = () => {
             <div className="max-w-container mx-auto grid grid-cols-4 gap-5 text-white">
                 <div>
                     <Link onClick={e => e.stopPropagation()} to="/">
-                        <LogoIcon mainColor={'var(--white)'} />
+                        <LogoIcon mainColor={'rgb(var(--white))'} />
                     </Link>
                     <p className="font-light text-[13px] leading-[150%] mt-9">
                         © 2023 | CMA CGM Group <br /> Develop by Rivo Agency <br />{' '}

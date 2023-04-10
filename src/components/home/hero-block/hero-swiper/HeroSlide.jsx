@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import PropTypes from 'prop-types';
+import TabsPane from '@/components/tab/TabsPane';
 
 const HeroSlide = ({ video, title }) => {
     return (
@@ -18,7 +19,11 @@ const HeroSlide = ({ video, title }) => {
                 <div className="flex items-center">
                     <h1 className="font-mediumWd text-[42px] leading-[130%] text-white">{title}</h1>
                 </div>
-                <div>Right</div>
+                <div className="flex flex-col items-end">
+                    <div className="w-full max-w-[620px] mt-[38.5%] min-h-[55px] px-[30px] py-8 bg-white">
+                        <TabsPane />
+                    </div>
+                </div>
             </div>
         </div>
     );
@@ -26,7 +31,7 @@ const HeroSlide = ({ video, title }) => {
 
 HeroSlide.propTypes = {
     video: PropTypes.string,
-    title: PropTypes.string
+    title: PropTypes.string,
 };
 
 export default memo(HeroSlide);

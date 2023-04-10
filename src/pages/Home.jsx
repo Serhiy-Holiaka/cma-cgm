@@ -1,8 +1,12 @@
-import Hero from '@/components/home/hero';
+import HeroBlock from '@/components/home/hero-block';
+import NeedsBlock from '@/components/home/needs-block';
 
 const Home = () => {
     return (
-        <Hero />
+        <>
+            <HeroBlock />
+            <NeedsBlock />
+        </>
     );
 };
 
