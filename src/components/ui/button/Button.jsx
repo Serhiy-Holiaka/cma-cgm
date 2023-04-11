@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Button = forwardRef(
     ({ children, actionType = 'button', variant='colored', additionalClasses, onClick, ...rest }, ref) => {
-        const variantStyle = variant === 'outline' ? 'bg-white text-black-dark' : 'bg-red text-white';
+        const variantStyle = variant === 'outline' ? 'bg-white text-black-dark border border-black-dark' : 'bg-red text-white';
         const handleClick =
             typeof onClick === 'function'
                 ? e => {
@@ -16,7 +16,7 @@ const Button = forwardRef(
             <button
                 ref={ref}
                 type={actionType}
-                className={`is-clickable button font-medium flex justify-center items-center px-10 py-[15px] min-w-[115px] h-[51px] text-[15px] ${variantStyle} hover:shadow-md ${additionalClasses}`}
+                className={`is-clickable button font-medium flex justify-center items-center px-10 py-[15px] min-w-[115px] h-[51px] text-[15px] ${variantStyle} hover:shadow-md  ${additionalClasses}`}
                 onClick={handleClick}
                 {...rest}
             >
