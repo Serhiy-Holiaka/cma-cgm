@@ -2,11 +2,13 @@ import { memo } from 'react';
 import PropTypes from 'prop-types';
 import MenuLinkMobile from '../MenuLink/MenuLinkMobile';
 import { useMenuContext } from '@/context/MenuContext';
+import { useThemeContext } from '@/context/ThemeContext';
 import { MENU_LIST } from '@/constants/menu.constants';
 
-const MobileMenu = ({ darkColor, menuList = MENU_LIST }) => {
+const MobileMenu = ({ menuList = MENU_LIST }) => {
     const { isMobMenuOpen, setIsMobMenuOpen } = useMenuContext();
-    const themeColor = darkColor ? 'bg-blue-dark' : 'bg-white';
+    const { isDark } = useThemeContext();
+    const themeColor = isDark ? 'bg-blue-dark' : 'bg-white';
 
     const handleClick = e => {
         e.stopPropagation();
@@ -56,8 +58,7 @@ const MobileMenu = ({ darkColor, menuList = MENU_LIST }) => {
 };
 
 MobileMenu.propTypes = {
-    menuList: PropTypes.arrayOf(PropTypes.object),
-    darkColor: PropTypes.bool,
+    menuList: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default memo(MobileMenu);

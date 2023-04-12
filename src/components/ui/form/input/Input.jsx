@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Error from '@/components/ui/form/error';
 
 const Input = forwardRef(
-    ({ id, type = 'text', name, value, placeholder, error, onChange, onBlur, helperText, label, ...rest }, ref) => {
+    ({ id, type = 'text', name, value, placeholder, error, onChange, onBlur, helperText, label, additionalClasses, ...rest }, ref) => {
         const changeHandler = e => {
             if (typeof onChange === 'function') {
                 onChange(e);
@@ -17,7 +17,7 @@ const Input = forwardRef(
         };
 
         return (
-            <div className="relative min-w-0">
+            <div className={`relative min-w-0 ${additionalClasses}`}>
                 {label && (
                     <label htmlFor={id} onClick={(e) => e.stopPropagation()} className={`block font-regular text-[15px] leading-[130%] ${error ? 'text-red' : 'text-black-dark'} mb-4`}>
                         {label}
@@ -57,6 +57,7 @@ Input.propTypes = {
     onBlur: PropTypes.func,
     helperText: PropTypes.string,
     label: PropTypes.string,
+    additionalClasses: PropTypes.string
 };
 
 export default memo(Input);
