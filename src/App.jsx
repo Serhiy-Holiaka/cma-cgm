@@ -3,6 +3,7 @@ import Layout from '@/components/layout';
 import Home from '@/pages/Home';
 import AboutUs from '@/pages/AboutUs';
 import LocalOffices from '@/pages/LocalOffices';
+import Guides from '@/pages/Guides';
 
 const App = () => {
     const basePath = import.meta.env.PROD ? '/cmacgm/' : '/';
@@ -23,6 +24,10 @@ const App = () => {
                     {
                         path: 'offices',
                         element: <LocalOffices />,
+                    },
+                    {
+                        path: 'guides',
+                        element: <Guides />,
                     },
                 ],
             },

@@ -91,7 +91,7 @@ const LocalOffices = () => {
                         </TabButton>
                     </div>
                 </div>
-                <AnimatePresence>
+                <AnimatePresence initial={false}>
                     {isLoading ? (
                         <div className="flex items-center justify-center h-full w-full text-xl text-black-dark text-opacity-50">
                             Loading...
