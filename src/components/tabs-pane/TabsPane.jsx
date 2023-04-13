@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import TabButton from '@/components/tab/TabButton';
+import TabButton from '@/components/ui/tab';
 import TrackingForm from '@/components/forms/TrackingForm';
 import ScheduleForm from '@/components/forms/ScheduleForm';
 import Button from '@/components/ui/button';

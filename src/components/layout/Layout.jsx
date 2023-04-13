@@ -2,18 +2,23 @@ import { useState, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import { useDebounce } from '@/hooks/useDebounce';
 import { ThemeProvider } from '@/context/ThemeContext';
 
 const Layout = () => {
     const { pathname } = useLocation();
     const [clickable, setClickable] = useState();
     const [isDark, setIsDark] = useState(false);
-    const hide = useDebounce(() => {
-        clickable.map(block => {
-            block.className = block.className.replace(' active-clickable', '');
-        });
-    }, 1000);
+
+    const hide = () => {
+        const time = 1000;
+        setTimeout(
+            () =>
+                clickable.map(block => {
+                    block.className = block.className.replace(' active-clickable', '');
+                }),
+            time
+        );
+    };
 
     useEffect(() => {
         pathname === '/' ? setIsDark(false) : setIsDark(true);
@@ -29,9 +34,9 @@ const Layout = () => {
             return;
         } else {
             clickable.map(block => {
-                !block.className.includes('active-clickable') === true
-                    ? (block.className += ' active-clickable')
-                    : (block.className += '');
+                block.className.includes('active-clickable')
+                    ? (block.className += '')
+                    : (block.className += ' active-clickable');
             });
         }
         hide();

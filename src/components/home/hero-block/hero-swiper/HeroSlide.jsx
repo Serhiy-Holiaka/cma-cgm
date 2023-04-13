@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import PropTypes from 'prop-types';
-import TabsPane from '@/components/tab/TabsPane';
+import TabsPane from '@/components/tabs-pane';
 
 const HeroSlide = ({ video, title }) => {
     return (

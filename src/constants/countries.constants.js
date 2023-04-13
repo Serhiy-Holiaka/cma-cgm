@@ -1,4 +1,4 @@
-export const CONTRIES_LIST = [
+export const COUNTRIES_LIST = [
     { name: 'Afghanistan', code: 'AF' },
     { name: 'Aland Islands', code: 'AX' },
     { name: 'Albania', code: 'AL' },
@@ -52,7 +52,7 @@ export const CONTRIES_LIST = [
     { name: 'Congo, The Democratic Republic of the', code: 'CD' },
     { name: 'Cook Islands', code: 'CK' },
     { name: 'Costa Rica', code: 'CR' },
-    { name: "Cote D'Ivoire", code: 'CI' },
+    { name: 'Cote D\'Ivoire', code: 'CI' },
     { name: 'Croatia', code: 'HR' },
     { name: 'Cuba', code: 'CU' },
     { name: 'Cyprus', code: 'CY' },
@@ -114,11 +114,11 @@ export const CONTRIES_LIST = [
     { name: 'Kazakhstan', code: 'KZ' },
     { name: 'Kenya', code: 'KE' },
     { name: 'Kiribati', code: 'KI' },
-    { name: "Korea, Democratic People'S Republic of", code: 'KP' },
+    { name: 'Korea, Democratic People\'S Republic of', code: 'KP' },
     { name: 'Korea, Republic of', code: 'KR' },
     { name: 'Kuwait', code: 'KW' },
     { name: 'Kyrgyzstan', code: 'KG' },
-    { name: "Lao People'S Democratic Republic", code: 'LA' },
+    { name: 'Lao People\'S Democratic Republic', code: 'LA' },
     { name: 'Latvia', code: 'LV' },
     { name: 'Lebanon', code: 'LB' },
     { name: 'Lesotho', code: 'LS' },
