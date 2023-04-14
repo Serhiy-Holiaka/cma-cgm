@@ -10,6 +10,7 @@ module.exports = {
             medium: ['Resolve-Medium', 'sans-serif'],
             mediumWd: ['Resolve-MediumWd', 'sans-serif'],
             semilight: ['Resolve-Semilight', 'sans-serif'],
+            semibold: ['Resolve-Semibold', 'sans-serif'],
         },
         screens: {
             tablet: '640px',
@@ -24,6 +25,9 @@ module.exports = {
             },
         },
         extend: {
+            gridTemplateColumns: {
+                secondary: 'minmax(auto, 1140px) 360px',
+            },
             colors: {
                 white: {
                     DEFAULT: 'rgb(var(--white) / <alpha-value>)',
@@ -43,7 +47,10 @@ module.exports = {
             },
             maxWidth: {
                 container: '1530px',
-            }
+            },
+            boxShadow: {
+                custom: '0 8px 16px rgba(0, 0, 0, 0.16)',
+              }
         },
     },
     plugins: [],

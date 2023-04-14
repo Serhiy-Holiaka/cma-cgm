@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import PlayIcon from '@/components/ui/icons/PlayIcon';
 import PauseIcon from '@/components/ui/icons/PauseIcon';
 
-const Video = ({ sourcesList }) => {
+const Video = ({ sourcesList, ...rest }) => {
     const [isPlay, steIsPlay] = useState(false);
     const videoRef = useRef(null);
 
@@ -31,6 +31,7 @@ const Video = ({ sourcesList }) => {
                 preload="metadata"
                 onClick={handlePlayStop}
                 className="absolute top-0 left-0 bottom-0 right-0 w-full h-full object-cover"
+                {...rest}
             >
                 {sourcesList && sourcesList.map((item, i) => <source key={i} src={item.src} type={item.type} />)}
                 Your browser is not suported!

@@ -18,3 +18,7 @@
     font-family: "Resolve-Semilight";
     src: url("/src/assets/fonts/Resolve-Semilight.woff2") format("woff");
 }
+@font-face {
+    font-family: "Resolve-Semibold";
+    src: url("/src/assets/fonts/Resolve-Semibold.woff2") format("woff");
+}

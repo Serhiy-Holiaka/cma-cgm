@@ -173,7 +173,7 @@ const OurMission = () => {
                     </ul>
                     <p className="text-base text-black-dark text-opacity-70 leading-[150%] mt-8">
                         To learn more about our Group,{' '}
-                        <Link className="text-[#074CE4] underline">visit our corporate website.</Link>
+                        <Link className="text-[#074CE4] text-opacity-70 underline">visit our corporate website.</Link>
                     </p>
                 </div>
             </div>
