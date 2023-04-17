@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import HeroBlock from '@/components/hero-block';
 import heroImage from '/images/cargo/cargo-hero.webp';
 import RightBar from '@/components/right-bar';
@@ -9,7 +10,12 @@ import TeamIcon from '@/components/ui/icons/TeamIcon';
 import ProcessIcon from '@/components/ui/icons/ProcessIcon';
 import PromisingIcon from '@/components/ui/icons/PromisingIcon';
 import ReliabilityIcon from '@/components/ui/icons/ReliabilityIcon';
-import { Link } from 'react-router-dom';
+import interestImgOne from '/images/cargo/interest-1.webp';
+import interestImgTwo from '/images/cargo/interest-2.webp';
+import interestImgThree from '/images/cargo/interest-3.webp';
+import guideBg from '/images/guides/guide-bg.webp';
+import FAQitems from '@/components/ui/faq';
+import { FAQ_CARGO } from '@/constants/faqItems.constants';
 
 const videos = [
     {
@@ -19,6 +25,33 @@ const videos = [
     {
         src: videoCargo,
         type: 'video/mp4',
+    },
+];
+
+const cardsList = [
+    {
+        title: 'Up to 500 tons',
+        subTitle: 'in a single shipment',
+    },
+    {
+        title: '330,000 TEU',
+        subTitle: 'in 2020',
+    },
+    {
+        title: '1',
+        subTitle: 'single entry point',
+    },
+    {
+        title: '24/7',
+        subTitle: 'Availability',
+    },
+    {
+        title: '420',
+        subTitle: 'ports around the world',
+    },
+    {
+        title: '250+',
+        subTitle: 'shipping lines',
     },
 ];
 
@@ -63,8 +96,8 @@ const OversizedCargo = () => {
                     <div className="grid grid-cols-3 gap-x-7 gap-y-12">
                         <div>
                             <TeamIcon />
-                            <h6 className="text-2xl mt-7 mb-6">A dedicated team</h6>
-                            <p className="text-base text-black-dark text-opacity-70">
+                            <h6 className="font-medium text-2xl mt-7 mb-6">A dedicated team</h6>
+                            <p className="font-regular text-base text-black-dark text-opacity-70">
                                 An integrated approach to shipping oversized cargo (from RFQ to execution) overseen by a
                                 dedicated project leader for each operation: 7 expert teams around the world can provide
                                 you with the best advice, then plan and execute your project.
@@ -72,8 +105,8 @@ const OversizedCargo = () => {
                         </div>
                         <div>
                             <ProcessIcon />
-                            <h6 className="text-2xl mt-7 mb-6">A dedicated team</h6>
-                            <p className="text-base text-black-dark text-opacity-70">
+                            <h6 className="font-medium text-2xl mt-7 mb-6">A dedicated team</h6>
+                            <p className="font-regular text-base text-black-dark text-opacity-70">
                                 A technical engineering department integrated within the Project Cargo team can design
                                 technical solutions to ship all your oversized cargo. These encompass the lifting and
                                 stowage plan, the securing plan and calculations, and the delivery method.
@@ -81,16 +114,16 @@ const OversizedCargo = () => {
                         </div>
                         <div>
                             <ReliabilityIcon />
-                            <h6 className="text-2xl mt-7 mb-6">A dedicated team</h6>
-                            <p className="text-base text-black-dark text-opacity-70">
+                            <h6 className="font-medium text-2xl mt-7 mb-6">A dedicated team</h6>
+                            <p className="font-regular text-base text-black-dark text-opacity-70">
                                 We apply our technical know-how to manage and ship all your oversized cargo securely,
                                 with inspectors overseeing the loading and unloading operations.
                             </p>
                         </div>
                         <div>
                             <PromisingIcon />
-                            <h6 className="text-2xl mt-7 mb-6">A dedicated team</h6>
-                            <p className="text-base text-black-dark text-opacity-70">
+                            <h6 className="font-medium text-2xl mt-7 mb-6">A dedicated team</h6>
+                            <p className="font-regular text-base text-black-dark text-opacity-70">
                                 Our specialist teams are on hand in Europe, China, Brazil, the United States, the Middle
                                 East and Singapore. They have access to a fleet of over 500 ships and over 200 shipping
                                 services covering 420 ports, with weekly departures, numerous rotations and short and
@@ -149,12 +182,110 @@ const OversizedCargo = () => {
                         and work out which solution best fits your project.
                     </p>
                     <Button>Contact our team</Button>
-                    <h1 className="text-[42px] leading-[130%] text-black-dark mt-16 mb-8">
+                    <h1 className="text-[42px] leading-[130%] text-black-dark mt-16">
                         Outstanding expertise for your oversized cargo
                     </h1>
+                    <div className="grid grid-cols-3 gap-7 my-16">
+                        {cardsList.map(({ title, subTitle }, i) => (
+                            <div key={i} className="flex flex-col items-center border border-gray-light py-6 px-4">
+                                <h6 className="text-[32px] leading-[130%] text-center text-red mb-6">{title}</h6>
+                                <p className="font-regular text-[15px] text-center text-black-dark">{subTitle}</p>
+                            </div>
+                        ))}
+                    </div>
+                    <p className="text-base text-black-dark text-opacity-70 mb-8">
+                        The Group complies with all international regulations such as those contained in the
+                        International Convention for the Safety of Life at Sea (SOLAS) and its amendments, in particular
+                        the IMO Code of Safe Practice for Cargo Stowage and Securing (CSS Code) and its Annex 13.
+                    </p>
+                    <div className="inline-flex gap-7">
+                        <Button>SOLAS</Button>
+                        <Button>Safe practice for cargo stowage</Button>
+                    </div>
+                    <h1 className="text-[42px] leading-[130%] text-black-dark my-16">You may be interested in...</h1>
+                    <div className="grid grid-cols-3 gap-7">
+                        <div>
+                            <p className="text-base text-center text-black-dark text-opacity-70 uppercase mb-4">
+                                GUARANTEE
+                            </p>
+                            <p className="font-semibold text-[22px] text-center text-black-dark mb-4">
+                                SERENITY cargo value guarantee
+                            </p>
+                            <div className="relative h-[112px]">
+                                <img
+                                    className="absolute w-full h-full object-cover"
+                                    src={interestImgOne}
+                                    alt="Energy biofuel"
+                                />
+                            </div>
+                            <p className="text-base text-black-dark text-opacity-70 text-center mt-4">
+                                A revolutionary approach to handling claims in case of damage to your cargo.
+                            </p>
+                        </div>
+                        <div>
+                            <p className="text-base text-center text-black-dark text-opacity-70 uppercase mb-4">
+                                GUARANTEE
+                            </p>
+                            <p className="font-semibold text-[22px] text-center text-black-dark mb-4">
+                                SERENITY container guarantee
+                            </p>
+                            <div className="relative h-[112px]">
+                                <img
+                                    className="absolute w-full h-full object-cover"
+                                    src={interestImgTwo}
+                                    alt="Energy biofuel"
+                                />
+                            </div>
+                            <p className="text-base text-black-dark text-opacity-70 text-center mt-4">
+                                Reduce the negative impacts on your business if accidental and unforeseen damages occur
+                                to our containers while under your responsibility.
+                            </p>
+                        </div>
+                        <div>
+                            <p className="text-base text-center text-black-dark text-opacity-70 uppercase mb-4">
+                                GUARANTEE
+                            </p>
+                            <p className="font-semibold text-[22px] text-center text-black-dark mb-4">
+                                SERENITY container guarantee
+                            </p>
+                            <div className="relative h-[112px]">
+                                <img
+                                    className="absolute w-full h-full object-cover"
+                                    src={interestImgThree}
+                                    alt="Energy biofuel"
+                                />
+                            </div>
+                            <p className="text-base text-black-dark text-opacity-70 text-center mt-4">
+                                Reduce the negative impacts on your business if accidental and unforeseen damages occur
+                                to our containers while under your responsibility.
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <RightBar title="CMA CGM+ services" subList={sublist} />
+                </div>
+            </section>
+            <section className="relative max-w-[1920px] h-[500px] mx-auto">
+                <img
+                    className="absolute w-full h-full object-cover z-[1]"
+                    width={1920}
+                    height={500}
+                    src={guideBg}
+                    alt="guidebg-image"
+                />
+                <div className="absolute w-full h-full bg-black-dark opacity-50 z-[2]" />
+                <div className="relative container flex flex-col items-center justify-center h-full max-w-[780px] mx-auto z-[3]">
+                    <h2 className="text-[42px] leading-[130%] text-white text-center mb-8">
+                        Contact the CMA CGM Project Cargo Team
+                    </h2>
+                    <Button>Send an email</Button>
+                </div>
+            </section>
+            <section className="pb-16">
+                <h1 className="text-[42px] leading-none text-black-dark text-center uppercase py-16">FAQ</h1>
+                <div className="container max-w-container">
+                    <FAQitems list={FAQ_CARGO} additionalClasses="mx-auto" />
                 </div>
             </section>
         </>

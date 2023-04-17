@@ -199,7 +199,7 @@ const CMAGroup = () => {
                             <p className="text-base text-center text-black-dark text-opacity-70 uppercase mb-4">
                                 CLEANER ENERGY BIOFUEL
                             </p>
-                            <p className="font-semibold text-2xl text-center text-black-dark mb-4">POSITIVE OFFSET</p>
+                            <p className="font-semibold text-2xl text-center text-black-dark mb-4">Nestlé Waters</p>
                             <div className="relative h-[112px]">
                                 <img
                                     className="absolute w-full h-full object-cover"
@@ -215,7 +215,7 @@ const CMAGroup = () => {
                             <p className="text-base text-center text-black-dark text-opacity-70 uppercase mb-4">
                                 CLEANER ENERGY BIOFUEL
                             </p>
-                            <p className="font-semibold text-2xl text-center text-black-dark mb-4">POSITIVE OFFSET</p>
+                            <p className="font-semibold text-2xl text-center text-black-dark mb-4">ugpban</p>
                             <div className="relative h-[112px]">
                                 <img
                                     className="absolute w-full h-full object-cover"
@@ -224,14 +224,15 @@ const CMAGroup = () => {
                                 />
                             </div>
                             <p className="text-base text-black-dark text-opacity-70 text-center mt-4">
-                                Nestlé has reduced 1,426 tons of CO2 in 2021 thanks to CLEANER ENERGY biofuel.
+                                The Banane de Guadeloupe & Martinique reduced 16 tons of CO2 from its transport of Fair
+                                Trade French Bananas thanks to the CLEANER ENERGY biofuel.
                             </p>
                         </div>
                         <div>
                             <p className="text-base text-center text-black-dark text-opacity-70 uppercase mb-4">
                                 CLEANER ENERGY BIOFUEL
                             </p>
-                            <p className="font-semibold text-2xl text-center text-black-dark mb-4">POSITIVE OFFSET</p>
+                            <p className="font-semibold text-2xl text-center text-black-dark mb-4">MGTS (Mobivia)</p>
                             <div className="relative h-[112px]">
                                 <img
                                     className="absolute w-full h-full object-cover"
@@ -240,7 +241,7 @@ const CMAGroup = () => {
                                 />
                             </div>
                             <p className="text-base text-black-dark text-opacity-70 text-center mt-4">
-                                Nestlé has reduced 1,426 tons of CO2 in 2021 thanks to CLEANER ENERGY biofuel.
+                                Mobivia has reduced 972 tons of CO2 in 2021 thanks to CLEANER ENERGY biofuel.
                             </p>
                         </div>
                     </div>

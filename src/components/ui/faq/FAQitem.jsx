@@ -29,7 +29,7 @@ const AccordionItem = ({ title, description, id, isOpen, setExpanded }) => {
                 onKeyDown={setExpandedByKeyboardHandler}
                 onClick={setExpandedHandler}
             >
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-baseline">
                     <h5 className="text-xl text-black-dark">{title}</h5>
                     <ArrowDownIcon
                         className={`w-[14px] h-[10px] ${

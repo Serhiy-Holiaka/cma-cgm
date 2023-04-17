@@ -26,7 +26,7 @@ module.exports = {
         },
         extend: {
             gridTemplateColumns: {
-                secondary: 'minmax(auto, 1140px) 360px',
+                secondary: 'minmax(auto, 1155px) 375px',
             },
             colors: {
                 white: {
@@ -43,6 +43,9 @@ module.exports = {
                 },
                 red: {
                     DEFAULT: 'rgb(var(--red) / <alpha-value>)',
+                },
+                gray: {
+                    light: 'rgb(var(--gray-light) / <alpha-value>)'
                 },
             },
             maxWidth: {
