@@ -8,7 +8,7 @@ const LogisticServices = () => {
             <HeroBlock imgSrc={heroImage}>
                 <h1 className="font-mediumWd text-[42px] leading-[130%] text-white">Logistics Solutions</h1>
             </HeroBlock>
-            <section className="container max-w-container grid grid-cols-secondary gap-7 py-16">
+            <section className="container max-w-container grid xl:grid-cols-secondary gap-7 py-16">
                 <div>
                     <h1 className="text-[42px] leading-[130%] text-black-dark">
                         Logistics services that create value at each stage of your supply chain

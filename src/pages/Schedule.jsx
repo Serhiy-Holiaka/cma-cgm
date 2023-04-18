@@ -28,7 +28,7 @@ const Schedule = () => {
             <HeroBlock imgSrc={heroImage}>
                 <h1 className="font-mediumWd text-[42px] leading-[130%] text-white">Scheduled flights</h1>
             </HeroBlock>
-            <section className="container max-w-container grid grid-cols-secondary gap-7 py-16">
+            <section className="container max-w-container grid xl:grid-cols-secondary gap-7 py-16">
                 <div>
                     <h1 className="text-[42px] leading-[130%] text-black-dark">
                         CMA CGM AIR CARGO, delivering at the highest level

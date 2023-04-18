@@ -46,8 +46,8 @@ const CMAGroup = () => {
             <HeroBlock imgSrc={heroImage}>
                 <h1 className="font-mediumWd text-[42px] leading-[130%] text-white">VGM Management at CMA CGM Group</h1>
             </HeroBlock>
-            <section className="container max-w-container grid grid-cols-secondary gap-7 py-16">
-                <div>
+            <section className="container max-w-container grid xl:grid-cols-secondary gap-7 py-16">
+                <div className="order-2 xl:order-1">
                     <h1 className="text-[42px] leading-[130%] text-black-dark">
                         Take control of the carbon footprint of your shipments
                     </h1>
@@ -246,7 +246,7 @@ const CMAGroup = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="order-1 xl:order-2">
                     <RightBar title="CMA CGM+ services" subList={sublist} />
                 </div>
             </section>

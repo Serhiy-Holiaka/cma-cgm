@@ -12,10 +12,6 @@ module.exports = {
             semilight: ['Resolve-Semilight', 'sans-serif'],
             semibold: ['Resolve-Semibold', 'sans-serif'],
         },
-        screens: {
-            tablet: '640px',
-            desktop: '1000px',
-        },
         container: {
             center: true,
             padding: {
@@ -25,6 +21,10 @@ module.exports = {
             },
         },
         extend: {
+            screens: {
+                tablet: '640px',
+                desktop: '1000px',
+            },
             gridTemplateColumns: {
                 secondary: 'minmax(auto, 1155px) 375px',
             },
@@ -45,7 +45,7 @@ module.exports = {
                     DEFAULT: 'rgb(var(--red) / <alpha-value>)',
                 },
                 gray: {
-                    light: 'rgb(var(--gray-light) / <alpha-value>)'
+                    light: 'rgb(var(--gray-light) / <alpha-value>)',
                 },
             },
             maxWidth: {
@@ -53,7 +53,7 @@ module.exports = {
             },
             boxShadow: {
                 custom: '0 8px 16px rgba(0, 0, 0, 0.16)',
-              }
+            },
         },
     },
     plugins: [],

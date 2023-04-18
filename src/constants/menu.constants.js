@@ -21,7 +21,7 @@ export const MENU_LIST = [
         subMenu: [
             {
                 name: 'ACT with CMA CGM+',
-                href: '/shipping-act',
+                href: '',
             },
             {
                 name: 'Oversized cargo',

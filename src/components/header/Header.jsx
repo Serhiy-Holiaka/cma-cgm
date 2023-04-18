@@ -4,7 +4,7 @@ import DesktopMenu from '@/components/menu/DesktopMenu';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import Button from '@/components/ui/button';
 import LogoIcon from '@/components/ui/icons/LogoIcon';
-import SearchIcon from '@/components/ui/icons/SearchIcon';
+import SearchButton from '@/components/ui/search-button';
 import { Link, useNavigate } from 'react-router-dom';
 import { MenuProvider } from '@/context/MenuContext';
 import { useThemeContext } from '@/context/ThemeContext';
@@ -41,15 +41,9 @@ const Header = () => {
                     />
                     {!isMobile && <DesktopMenu />}
                     <div className="flex items-center [&>*]:mr-9 last:[&>*]:mr-0">
-                        <button type="button" className="is-clickable z-[5] [&_path]:hover:stroke-blue">
-                            <SearchIcon
-                                className={`w-6 h-auto ${
-                                    isDark ? '[&_path]:stroke-black-dark' : '[&_path]:stroke-white'
-                                } transition-colors`}
-                            />
-                        </button>
+                        <SearchButton menuId="search" />
                         <LanguageMenu menuId="langTop" />
-                        <Button onClick={() => navigate('/contact-us')} additionalClasses="z-[5]">
+                        <Button onClick={() => navigate('/about-us')} additionalClasses="z-[5]">
                             Contact Us
                         </Button>
                     </div>

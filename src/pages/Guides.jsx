@@ -27,8 +27,8 @@ const Guides = () => {
             <HeroBlock imgSrc={heroImage}>
                 <h1 className="font-mediumWd text-[42px] leading-[130%] text-white">VGM Management at CMA CGM Group</h1>
             </HeroBlock>
-            <section className="container max-w-container grid grid-cols-secondary gap-7 pt-16">
-                <div>
+            <section className="container max-w-container grid xl:grid-cols-secondary gap-7 pt-16">
+                <div className="order-2 xl:order-1">
                     <h4 className="font-medium text-2xl leading-[150%] text-black-dark mb-16">
                         <Link className="font-mediumWd underline underline-offset-4 text-blue">CMA CGM Group</Link> we
                         take utmost care to ensure the safe transportation of your cargo. We are also committed to
@@ -91,7 +91,7 @@ const Guides = () => {
                         window system for real time view on SOLAS compliance.
                     </p>
                 </div>
-                <div>
+                <div className="order-1 xl:order-2">
                     <RightBar title="Guides" subList={sublist} />
                 </div>
             </section>

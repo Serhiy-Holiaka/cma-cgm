@@ -70,8 +70,8 @@ const OversizedCargo = () => {
             <HeroBlock imgSrc={heroImage}>
                 <h1 className="font-mediumWd text-[42px] leading-[130%] text-white">Special Cargo</h1>
             </HeroBlock>
-            <section className="container max-w-container grid grid-cols-secondary gap-7 py-16">
-                <div>
+            <section className="container max-w-container grid xl:grid-cols-secondary gap-7 py-16">
+                <div className="order-2 xl:order-1">
                     <h1 className="text-[42px] leading-[130%] text-black-dark">
                         Have CMA CGM ship your oversized cargo
                     </h1>
@@ -262,7 +262,7 @@ const OversizedCargo = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="order-1 xl:order-2">
                     <RightBar title="CMA CGM+ services" subList={sublist} />
                 </div>
             </section>

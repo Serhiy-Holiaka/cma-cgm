@@ -8,6 +8,12 @@ import ReliabilityIcon from '@/components/ui/icons/ReliabilityIcon';
 import operationOne from '/images/air-freight/operationOne.webp';
 import operationTwo from '/images/air-freight/operationTwo.webp';
 import operationThree from '/images/air-freight/operationThree.webp';
+import PerishablesIcon from '@/components/ui/icons/PerishablesIcon';
+import CharterIcon from '@/components/ui/icons/CharterIcon';
+import LuxuryIcon from '@/components/ui/icons/LuxuryIcon';
+import DangerousIcon from '@/components/ui/icons/DangerousIcon';
+import PharmaIcon from '@/components/ui/icons/PharmaIcon';
+import AnimalsIcon from '@/components/ui/icons/AnimalsIcon';
 
 const sublist = [
     {
@@ -24,8 +30,8 @@ const Dedicated = () => {
             <HeroBlock imgSrc={heroImage}>
                 <h1 className="font-mediumWd text-[42px] leading-[130%] text-white">Dedicated flights</h1>
             </HeroBlock>
-            <section className="container max-w-container grid grid-cols-secondary gap-7 py-16">
-                <div>
+            <section className="container max-w-container grid xl:grid-cols-secondary gap-7 py-16">
+                <div className="order-2 xl:order-1">
                     <h1 className="text-[42px] leading-[130%] text-black-dark">
                         CMA CGM AIR CARGO, an agile solution for your urgent transportation needs
                     </h1>
@@ -70,7 +76,32 @@ const Dedicated = () => {
                         <br />
                         We can transport any kind of cargo meeting industry IATA standards, including for example:
                     </p>
-
+                    <div className="grid grid-cols-3 gap-y-12">
+                        <div>
+                            <PerishablesIcon />
+                            <h6 className="font-medium text-xl text-black-dark mt-6">Perishables</h6>
+                        </div>
+                        <div>
+                            <CharterIcon />
+                            <h6 className="font-medium text-xl text-black-dark mt-6">Charter</h6>
+                        </div>
+                        <div>
+                            <LuxuryIcon />
+                            <h6 className="font-medium text-xl text-black-dark mt-6">Luxyry</h6>
+                        </div>
+                        <div>
+                            <DangerousIcon />
+                            <h6 className="font-medium text-xl text-black-dark mt-6">Dangerous goods</h6>
+                        </div>
+                        <div>
+                            <PharmaIcon />
+                            <h6 className="font-medium text-xl text-black-dark mt-6">Pharma</h6>
+                        </div>
+                        <div>
+                            <AnimalsIcon />
+                            <h6 className="font-medium text-xl text-black-dark mt-6">Live animals</h6>
+                        </div>
+                    </div>
                     <h1 className="text-[42px] leading-[130%] text-black-dark my-16">Our latest operations</h1>
                     <div className="grid grid-cols-3 gap-7">
                         <div>
@@ -145,7 +176,7 @@ const Dedicated = () => {
                     </p>
                     <Button>General conditions of carriage for cargo</Button>
                 </div>
-                <div>
+                <div className="order-1 xl:order-2">
                     <RightBar title="Special Cargo" subList={sublist} />
                 </div>
             </section>
