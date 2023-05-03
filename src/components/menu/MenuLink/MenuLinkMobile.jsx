@@ -7,12 +7,12 @@ import ArrowDownIcon from '@/components/ui/icons/ArrowDownIcon';
 const MenuLinkMobile = ({ children, href, id, subMenu }) => {
     const linkRef = useRef(null);
     const { pathname } = useLocation();
-    const { activeSubId, setActiveSubId } = useMenuContext();
+    const { activeSubId, setActiveSubId, setIsMobMenuOpen } = useMenuContext();
     const [isOpen, setIsOpen] = useState(false);
     const [linkActive, setLinkActive] = useState(false);
 
     useEffect(() => {
-        (activeSubId !== id && isOpen) && setIsOpen(false);
+        activeSubId !== id && isOpen && setIsOpen(false);
     }, [activeSubId, id, isOpen, setIsOpen]);
 
     useEffect(() => {
@@ -70,6 +70,7 @@ const MenuLinkMobile = ({ children, href, id, subMenu }) => {
                                     onClick={e => {
                                         e.stopPropagation();
                                         setActiveSubId('');
+                                        setIsMobMenuOpen(prev => !prev);
                                     }}
                                     to={href}
                                 >
@@ -87,6 +88,7 @@ const MenuLinkMobile = ({ children, href, id, subMenu }) => {
             onClick={e => {
                 e.stopPropagation();
                 setActiveSubId('');
+                setIsMobMenuOpen(prev => !prev);
             }}
             className={({ isActive }) =>
                 `${
